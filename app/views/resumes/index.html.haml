@@ -15,8 +15,9 @@
       %td= resume.name
       %td= resume.address
       %td= link_to 'Show', resume
-      %td= link_to 'Edit', edit_resume_path(resume)
-      %td= link_to 'Destroy', resume, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      - if user_signed_in?
+        %td= link_to 'Edit', edit_resume_path(resume)
+        %td= link_to 'Destroy', resume, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
